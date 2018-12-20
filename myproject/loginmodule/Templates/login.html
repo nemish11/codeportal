@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+          {{ message }}
+      {% endfor %}
+    {% endif %}
+
+    <form action="/loginmodule/auth" method = "POST">{% csrf_token %}
+      <input type="text" name="username" id="username"/>
+      <input type="password" name="password" id="password"/>
+      <button type="submit" value="login">Login</button>
+    </form>
+  </body>
+</html>

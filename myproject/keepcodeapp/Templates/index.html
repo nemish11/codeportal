@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>demo!</title>
+  </head>
+  <body>
+    <h1>Hi! Django views and template test successful!!</h1>
+  </body>
+  <form action="/loginmodule/logout" method="POST">{% csrf_token %}
+    <button type="submit" value="logout">Logout</button>
+  </form>
+</html>
