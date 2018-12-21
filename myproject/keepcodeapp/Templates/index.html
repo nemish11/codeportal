@@ -6,6 +6,11 @@
   </head>
   <body>
     <h1>Hi! Django views and template test successful!!</h1>
+    {% if message %}
+      {% for d in message %}
+          {{ d }}<br/>
+      {% endfor %}
+    {% endif %}
   </body>
   <form action="/loginmodule/logout" method="POST">{% csrf_token %}
     <button type="submit" value="logout">Logout</button>

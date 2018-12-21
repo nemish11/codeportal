@@ -6,8 +6,13 @@ from django.contrib.auth.decorators import login_required
 import pandas as pd
 # Create your views here.
 @login_required(login_url="/loginmodule/login")
-def save_file(request):
-    return render(request,'index.html')
+def program_file(request):
+    message = []
+    for i in range(1,51):
+        message.append("program"+str(i))
+    c = {}
+    c['message'] = message
+    return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
 def add_user(request):
