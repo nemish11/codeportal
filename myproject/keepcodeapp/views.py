@@ -14,11 +14,20 @@ def add_user(request):
     if not request.user.is_superuser:
         return HttpResponseRedirect('/admin/')
     else:
-        username = request.POST.get('username','')
-        password1 = request.POST.get('password','')
-        user = User.objects.create_user(username=username)
-        user.set_password(password1)
-        user.save()
+        csv_file = request.FILES["userfile"]
+        if not csv_file.name.endswith('.csv'):
+            return render(request,'adduser.html')
+        if csv_file.multiple_chunks():
+            return render(request,'adduser.html')
+
+        data = pd.read_csv(csv_file,names=['username','password'])
+        x,y = data.shape
+        for i in range(x):
+            username = data['username'][i]
+            password1 = data['password'][i]
+            user = User.objects.create_user(username=username)
+            user.set_password(password1)
+            user.save()
         return render(request,'adduser.html')
 
 def adduser(request):

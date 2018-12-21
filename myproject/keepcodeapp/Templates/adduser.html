@@ -5,11 +5,9 @@
     <title>demo!</title>
   </head>
   <body>
-    <h1>Hi! Django views and template test successful!!</h1>
-  </body>
-  <form action="/keepcodeapp/add_user" method="POST">{% csrf_token %}
-    <input type="text" name="username" id="username"/>
-    <input type="password" name="password" id="password"/>
+  <form action="/keepcodeapp/add_user" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+    <input type = "file" name = "userfile" id="userfile"/>
     <button type="submit">Add User</button>
   </form>
+</body>
 </html>
