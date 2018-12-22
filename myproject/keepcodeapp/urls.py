@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from keepcodeapp.views import program_file,add_user,adduser,upload_file,upload_input,upload_output
+from .views import program_file,add_user,adduser,upload_file,upload_input,upload_output
 
 urlpatterns = [
     url(r'add_user',add_user),

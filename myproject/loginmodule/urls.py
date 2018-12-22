@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from loginmodule.views import auth_view,login,logout
+from .views import auth_view,login,logout
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [

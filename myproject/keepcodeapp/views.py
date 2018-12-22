@@ -14,9 +14,9 @@ def program_file(request):
     inputfile = {}
     outputfile = {}
     message = []
-    fname = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"
-    fname1 = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\"
-    fname2 = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\"
+    fname = "./keepcodeapp/static/UserSubmissions/"
+    fname1 = "./keepcodeapp/static/InputFiles/"
+    fname2 = "./keepcodeapp/static/OutputFiles/"
     for i in range(1,51):
         message.append(str(i))
         filename = fname + username + "_program" + str(i) + ".c"
@@ -33,6 +33,7 @@ def program_file(request):
     c['visited'] = visited
     c['inputfile'] = inputfile
     c['outputfile'] = outputfile
+    print(visited)
     return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
@@ -42,10 +43,10 @@ def upload_file(request):
         username = request.session['username']
         file1 = request.FILES["codefile"]
         fs = FileSystemStorage()
-        filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"+username+"_program"+str(id)+".c"
+        filename = "./keepcodeapp/static/UserSubmissions/"+username+"_program"+str(id)+".c"
         if fs.exists(filename):
             fs.delete(filename)
-        file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"+username+"_program"+str(id)+".c", file1)
+        file2 = fs.save("./keepcodeapp/static/UserSubmissions/"+username+"_program"+str(id)+".c", file1)
         return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')
@@ -59,10 +60,10 @@ def upload_input(request):
             id = request.GET.get('id')
             file1 = request.FILES["inputfile"]
             fs = FileSystemStorage()
-            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\input_program"+str(id)+".txt"
+            filename = "./keepcodeapp/static/InputFiles/input_program"+str(id)+".txt"
             if fs.exists(filename):
                 fs.delete(filename)
-            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\input_program"+str(id)+".txt", file1)
+            file2 = fs.save("./keepcodeapp/static/InputFiles/input_program"+str(id)+".txt", file1)
             return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')
@@ -76,10 +77,10 @@ def upload_output(request):
             id = request.GET.get('id')
             file1 = request.FILES["outputfile"]
             fs = FileSystemStorage()
-            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\output_program"+str(id)+".txt"
+            filename = "./keepcodeapp/static/OutputFiles/output_program"+str(id)+".txt"
             if fs.exists(filename):
                 fs.delete(filename)
-            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\output_program"+str(id)+".txt", file1)
+            file2 = fs.save("./keepcodeapp/static/OutputFiles/output_program"+str(id)+".txt", file1)
             return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')

@@ -9,11 +9,12 @@ from django.contrib import messages
 def login(request):
 	if request.user.is_authenticated:
 		if request.user.is_superuser:
+			username = request.POST.get('username', '')
 			request.session['superuser'] = username
 		else:
 			request.session['superuser'] = ""
 		#messages.add_message(request, messages.INFO, 'You are already Logged in.')
-		return HttpResponseRedirect('/keepcodeap')
+		return HttpResponseRedirect('/keepcodeapp')
 	else:
 		c = {}
 		c.update(csrf(request))
