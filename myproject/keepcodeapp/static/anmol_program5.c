@@ -12,22 +12,27 @@ using namespace std;
 #define ALL(x) (x).begin(),(x).end()
 const int MOD = 1000000007;
 
-void SieveOfEratosthenes(ll n)
-{
-    ll prime[n+1];
-    memset(prime, 1, sizeof(prime));
-    for (ll p=2; p*p<=n; p++)
-    {
-        if (prime[p] == 1)
-        {
-              for (ll i=p*2; i<=n; i += p)
-                prime[i] = 0;
-        }
-    }
-    /*for (int p=2; p<=n; p++)
-       if (prime[p])
-          cout << p << " ";*/
-}
+void factorize(ll n) 
+{ 
+    ll count = 0;   
+    while (!(n % 2)) { 
+        n/=2;
+        count++; 
+    } 
+    if (count) 
+        cout << 2 << "  " << count << endl; 
+    for (ll i = 3; i <= sqrt(n); i += 2) { 
+        count = 0; 
+        while (n % i == 0) { 
+            count++; 
+            n = n / i; 
+        } 
+        if (count) 
+            cout << i << "  " << count << endl; 
+    }  
+    if (n > 2) 
+        cout << n << "  " << 1 << endl; 
+} 
 
 int main()
 {	

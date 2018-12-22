@@ -14,7 +14,9 @@
             <button type = "submit">upload</button>
             <br/>
           </form>
+          {% if d in visited %}
           <a href="/static/{{request.session.username}}_program{{d}}.c">click</a>
+          {% endif %}
           <br/>
           <br/>
       {% endfor %}

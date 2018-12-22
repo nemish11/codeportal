@@ -12,21 +12,23 @@ using namespace std;
 #define ALL(x) (x).begin(),(x).end()
 const int MOD = 1000000007;
 
-void SieveOfEratosthenes(ll n)
+set<ll> divisor(ll n)
 {
-    ll prime[n+1];
-    memset(prime, 1, sizeof(prime));
-    for (ll p=2; p*p<=n; p++)
+    set<ll> v;
+    for (ll i=1; i<=sqrt(n); i++)
     {
-        if (prime[p] == 1)
+        if (n%i==0)
         {
-              for (ll i=p*2; i<=n; i += p)
-                prime[i] = 0;
+            if (n/i == i) 
+                v.insert(i);
+            else
+            {
+                v.insert(i);
+                v.insert(n/i);
+            }
         }
     }
-    /*for (int p=2; p<=n; p++)
-       if (prime[p])
-          cout << p << " ";*/
+  return v;   
 }
 
 int main()

@@ -8,11 +8,19 @@ import pandas as pd
 # Create your views here.
 @login_required(login_url="/loginmodule/login")
 def program_file(request):
+    username = request.session['username']
+    fs = FileSystemStorage()
+    visited = {}
     message = []
     for i in range(1,51):
         message.append(str(i))
+        filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(i)+".c"
+        if fs.exists(filename):
+            visited[str(i)] = str(1)
     c = {}
     c['message'] = message
+    c['visited'] = visited
+    c["one"] = "1"
     return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
@@ -26,10 +34,20 @@ def upload_file(request):
         fs.delete(filename)
     file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(id)+".c", file1)
     message = []
+    visited = {}
     for i in range(1,51):
         message.append(str(i))
+        filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(i)+".c"
+        if fs.exists(filename):
+            visited[str(i)] = str(1)
     c = {}
     c['message'] = message
+    c['visited'] = visited
+    c["one"] = "1"
+    return render(request,'index.html',c)
+
+@login_required(login_url="/loginmodule/login")
+def upload_input(request):
     return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
