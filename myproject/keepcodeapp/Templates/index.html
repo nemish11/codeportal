@@ -1,49 +1,81 @@
+
 {% extends "base.html" %}
-hey
 {% block body %}
-    <h4>welcome  {{request.session.username}}!!<h4>
-    <form action="/loginmodule/logout" method="POST">{% csrf_token %}
-      <button type="submit" value="logout">Logout</button>
-    </form>
-    <br/>
+    <script>
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+<h1 class="center">Select Program</h1>
     {% if message %}
+    <div class="container row">
+    {% for d in message%}
+        <a class="modal-trigger" href="#modal{{d}}"><div class="center col s2 m2 l2 text-center red white-text" style="padding: 10px; border: solid white;">{{ d  }}</div></a>
+    {% endfor%}
+    </div>
       {% for d in message %}
-          program {{ d  }}
-          <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-            <input type="file" name="codefile" id="codefile" />
-            <button type = "submit">upload</button>
-            <br/>
-          </form>
-          {% if d in visited %}
-          <a href="/keepcodeapp/static/UserSubmissions/{{request.session.username}}_program{{d}}.c" download>check your previous solution</a>
-          {% endif %}
-          <br/>
-          input file :
-          {% if d in inputfile %}
-           <a href = "/keepcodeapp/static/InputFiles/input_program{{d}}.txt" download>inputfile</a> <br/>
-          {% endif %}
-          {% ifequal request.session.username request.session.superuser %}
-            <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-              <input type="file" name="inputfile" id="inputfile" />
-              <button type = "submit">upload input file</button>
-              <br/>
-            </form>
-          {% endifequal %}
-          <br/>
-          output file :
-          {% if d in outputfile %}
-           <a href = "/keepcodeapp/static/OutputFiles/output_program{{d}}.txt" download>outputfile</a> <br/>
-           {% endif %}
-          {% ifequal request.session.username request.session.superuser %}
-            <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-              <input type="file" name="outputfile" id="outputfile" />
-              <button type = "submit">upload output file</button>
-              <br/>
-            </form>
-          {% endifequal %}
-          <br/>
-          <br/>
+            <div id="modal{{d}}" class="modal">
+            <div class="modal-container container">
+                <br><h4 class="center">Program {{d}}</h4>
+              <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+
+                  <div class="file-field input-field row">
+                      <div class="btn col s4 m4 l4">
+                        <span>Code File</span>
+                        <input type="file"  name="codefile" id="codefile">
+                      </div>
+                      <div class="file-path-wrapper col s4 m4 l4">
+                        <input class="file-path validate" type="text">
+                      </div>
+                      <button type = "submit" class="btn col s4 m4 l4">upload Code file</button>
+                  </div>
+              </form>
+
+              {% ifequal request.session.username request.session.superuser %}
+                <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+                  <div class="file-field input-field row">
+                      <div class="btn col s4 m4 l4">
+                        <span>Input File</span>
+                        <input type="file"  name="inputfile" id="inputfile">
+                      </div>
+                      <div class="file-path-wrapper col s4 m4 l4">
+                        <input class="file-path validate" type="text">
+                      </div>
+                      <button type = "submit" class="btn col s4 m4 l4">upload input file</button>
+                  </div>
+                </form>
+              {% endifequal %}
+
+              {% ifequal request.session.username request.session.superuser %}
+                <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+
+                  <div class="file-field input-field row">
+                      <div class="btn col s4 m4 l4">
+                        <span>Output File</span>
+                        <input type="file"  name="outputfile" id="outputfile">
+                      </div>
+                      <div class="file-path-wrapper col s4 m4 l4">
+                        <input class="file-path validate" type="text">
+                      </div>
+                      <button type = "submit" class="btn col s4 m4 l4">upload output file</button>
+                  </div>
+                </form>
+              {% endifequal %}
+
+                <div class="row">
+                    {% if d in inputfile %}
+                        <a class="col s4 m4 l4 btn-flat" href = "/keepcodeapp/static/InputFiles/input_program{{d}}.txt" download>Inputfile</a>
+                    {% endif %}
+                    {% if d in outputfile %}
+                        <a class="col s4 m4 l4 btn-flat" href = "/keepcodeapp/static/OutputFiles/output_program{{d}}.txt" download>Outputfile</a>
+                    {% endif %}
+                    {% if d in visited %}
+                        <a class="col s4 m4 l4 btn-flat" href="/keepcodeapp/static/UserSubmissions/{{request.session.username}}_program{{d}}.c" download>Previous Solution</a>
+                    {% endif %}
+                </div>
+
+            </div>
+            </div>
       {% endfor %}
     {% endif %}
-
 {% endblock %}
