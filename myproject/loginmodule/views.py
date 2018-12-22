@@ -8,6 +8,10 @@ from django.contrib import messages
 # Create your views here.
 def login(request):
 	if request.user.is_authenticated:
+		if request.user.is_superuser:
+			request.session['superuser'] = username
+		else:
+			request.session['superuser'] = ""
 		#messages.add_message(request, messages.INFO, 'You are already Logged in.')
 		return HttpResponseRedirect('/keepcodeap')
 	else:
@@ -16,6 +20,7 @@ def login(request):
 		return render(request, 'login.html', c)
 
 def auth_view(request):
+	request.session['superuser'] = ""
 	username = request.POST.get('username', '')
 	password = request.POST.get('password', '')
 	user = auth.authenticate(username=username, password=password)
@@ -23,6 +28,10 @@ def auth_view(request):
 	if user is not None:
 		auth.login(request, user)
 		request.session['username']=username
+		if request.user.is_superuser:
+			request.session['superuser'] = username
+		else:
+			request.session['superuser'] = ""
 		#c={}
 		#c['message'] = "Your are now Logged in."
 		#messages.add_message(request, messages.INFO, 'Your are now Logged in.')
@@ -34,6 +43,7 @@ def auth_view(request):
 def logout(request):
 	if request.user.is_authenticated:
 		auth.logout(request)
+	request.session['superuser']=""
 	request.session['username']= ""
 	messages.add_message(request, messages.INFO, 'You are Successfully Logged Out')
 	messages.add_message(request, messages.INFO, 'Thanks for visiting.')
