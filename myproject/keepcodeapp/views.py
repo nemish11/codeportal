@@ -95,12 +95,18 @@ def add_user(request):
             if not csv_file.name.endswith('.csv'):
                 c['message'] = "please upload .csv file"
                 return render(request,'adduser.html',c)
+
             if csv_file.multiple_chunks():
                 c['message'] = "File is Too large!"
                 return render(request,'adduser.html',c)
 
             data = pd.read_csv(csv_file,names=['username','password'])
             x,y = data.shape
+            
+            if y != str(2) :
+                c['message'] = "File Format is not correct"
+                return render(request,'adduser.html',c)
+
             for i in range(x):
                 username = data['username'][i]
                 password1 = data['password'][i]

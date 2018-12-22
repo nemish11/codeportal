@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>demo!</title>
-  </head>
-  <body>
-    <h1>Hello {{request.session.username}}</h1>
+{% extends "base.html" %}
+hey
+{% block body %}
+    <h4>welcome  {{request.session.username}}!!<h4>
     <form action="/loginmodule/logout" method="POST">{% csrf_token %}
       <button type="submit" value="logout">Logout</button>
     </form>
@@ -49,5 +45,5 @@
           <br/>
       {% endfor %}
     {% endif %}
-  </body>
-</html>
+
+{% endblock %}
