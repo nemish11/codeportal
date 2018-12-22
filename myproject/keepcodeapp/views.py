@@ -3,13 +3,31 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import FileSystemStorage
 import pandas as pd
 # Create your views here.
 @login_required(login_url="/loginmodule/login")
 def program_file(request):
     message = []
     for i in range(1,51):
-        message.append("program"+str(i))
+        message.append(str(i))
+    c = {}
+    c['message'] = message
+    return render(request,'index.html',c)
+
+@login_required(login_url="/loginmodule/login")
+def upload_file(request):
+    id = request.GET.get('id')
+    username = request.session['username']
+    file1 = request.FILES["codefile"]
+    fs = FileSystemStorage()
+    filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(id)+".c"
+    if fs.exists(filename):
+        fs.delete(filename)
+    file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(id)+".c", file1)
+    message = []
+    for i in range(1,51):
+        message.append(str(i))
     c = {}
     c['message'] = message
     return render(request,'index.html',c)

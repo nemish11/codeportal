@@ -22,6 +22,7 @@ def auth_view(request):
 
 	if user is not None:
 		auth.login(request, user)
+		request.session['username']=username
 		#c={}
 		#c['message'] = "Your are now Logged in."
 		#messages.add_message(request, messages.INFO, 'Your are now Logged in.')
@@ -33,6 +34,7 @@ def auth_view(request):
 def logout(request):
 	if request.user.is_authenticated:
 		auth.logout(request)
+	request.session['username']= ""
 	messages.add_message(request, messages.INFO, 'You are Successfully Logged Out')
 	messages.add_message(request, messages.INFO, 'Thanks for visiting.')
 	return HttpResponseRedirect('/loginmodule/login/')

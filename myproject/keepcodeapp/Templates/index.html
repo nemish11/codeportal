@@ -5,10 +5,18 @@
     <title>demo!</title>
   </head>
   <body>
-    <h1>Hi! Django views and template test successful!!</h1>
+    <h1>Hello {{request.session.username}}</h1>
     {% if message %}
       {% for d in message %}
-          {{ d }}<br/>
+          program {{ d  }}
+          <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+            <input type="file" name="codefile" id="codefile" />
+            <button type = "submit">upload</button>
+            <br/>
+          </form>
+          <a href="/static/{{request.session.username}}_program{{d}}.c">click</a>
+          <br/>
+          <br/>
       {% endfor %}
     {% endif %}
   </body>
