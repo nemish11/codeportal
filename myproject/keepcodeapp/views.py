@@ -14,16 +14,18 @@ def program_file(request):
     inputfile = {}
     outputfile = {}
     message = []
-    fname = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"
+    fname = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"
+    fname1 = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\"
+    fname2 = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\"
     for i in range(1,51):
         message.append(str(i))
         filename = fname + username + "_program" + str(i) + ".c"
         if fs.exists(filename):
             visited[str(i)] = str(1)
-        filename = fname + "input_program" + str(i) + ".txt"
+        filename = fname1 + "input_program" + str(i) + ".txt"
         if fs.exists(filename):
             inputfile[str(i)] = str(1)
-        filename = fname + "output_program" + str(i) + ".txt"
+        filename = fname2 + "output_program" + str(i) + ".txt"
         if fs.exists(filename):
             outputfile[str(i)] = str(1)
     c = {}
@@ -40,10 +42,10 @@ def upload_file(request):
         username = request.session['username']
         file1 = request.FILES["codefile"]
         fs = FileSystemStorage()
-        filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(id)+".c"
+        filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"+username+"_program"+str(id)+".c"
         if fs.exists(filename):
             fs.delete(filename)
-        file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\"+username+"_program"+str(id)+".c", file1)
+        file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\UserSubmissions\\"+username+"_program"+str(id)+".c", file1)
         return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')
@@ -57,10 +59,10 @@ def upload_input(request):
             id = request.GET.get('id')
             file1 = request.FILES["inputfile"]
             fs = FileSystemStorage()
-            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\input_program"+str(id)+".txt"
+            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\input_program"+str(id)+".txt"
             if fs.exists(filename):
                 fs.delete(filename)
-            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\input_program"+str(id)+".txt", file1)
+            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\InputFiles\\input_program"+str(id)+".txt", file1)
             return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')
@@ -74,25 +76,28 @@ def upload_output(request):
             id = request.GET.get('id')
             file1 = request.FILES["outputfile"]
             fs = FileSystemStorage()
-            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\output_program"+str(id)+".txt"
+            filename = "C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\output_program"+str(id)+".txt"
             if fs.exists(filename):
                 fs.delete(filename)
-            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\output_program"+str(id)+".txt", file1)
+            file2 = fs.save("C:\\Users\\Naimish\\Desktop\\Project1\\myproject\\keepcodeapp\\static\\OutputFiles\\output_program"+str(id)+".txt", file1)
             return HttpResponseRedirect('/keepcodeap/program_file/')
     except:
         return HttpResponseRedirect('/keepcodeap/program_file/')
 
 @login_required(login_url="/loginmodule/login")
 def add_user(request):
+    c = {}
     try:
         if not request.user.is_superuser:
             return HttpResponseRedirect('/admin/')
         else:
             csv_file = request.FILES["userfile"]
             if not csv_file.name.endswith('.csv'):
-                return render(request,'adduser.html')
+                c['message'] = "please upload .csv file"
+                return render(request,'adduser.html',c)
             if csv_file.multiple_chunks():
-                return render(request,'adduser.html')
+                c['message'] = "File is Too large!"
+                return render(request,'adduser.html',c)
 
             data = pd.read_csv(csv_file,names=['username','password'])
             x,y = data.shape
@@ -102,9 +107,11 @@ def add_user(request):
                 user = User.objects.create_user(username=username)
                 user.set_password(password1)
                 user.save()
-            return render(request,'adduser.html')
+            c['message'] = "user added Successfully"
+            return render(request,'adduser.html',c)
     except:
-        return render(request,'adduser.html')
+        c['message'] = "Exception Occured"
+        return render(request,'adduser.html',c)
 
 def adduser(request):
     if request.user.is_superuser:

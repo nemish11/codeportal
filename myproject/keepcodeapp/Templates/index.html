@@ -19,12 +19,12 @@
             <br/>
           </form>
           {% if d in visited %}
-          <a href="/static/{{request.session.username}}_program{{d}}.c">check your previous solution</a>
+          <a href="/static/UserSubmissions/{{request.session.username}}_program{{d}}.c">check your previous solution</a>
           {% endif %}
           <br/>
           input file :
           {% if d in inputfile %}
-           <a href = "/static/input_program{{d}}.txt">inputfile</a> <br/>
+           <a href = "/static/InputFiles/input_program{{d}}.txt">inputfile</a> <br/>
           {% endif %}
           {% ifequal request.session.username request.session.superuser %}
             <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
@@ -36,7 +36,7 @@
           <br/>
           output file :
           {% if d in outputfile %}
-           <a href = "/static/output_program{{d}}.txt">outputfile</a> <br/>
+           <a href = "/static/OutputFiles/output_program{{d}}.txt">outputfile</a> <br/>
            {% endif %}
           {% ifequal request.session.username request.session.superuser %}
             <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}

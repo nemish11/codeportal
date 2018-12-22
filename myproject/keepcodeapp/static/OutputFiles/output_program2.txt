@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int top=-1;
+int n=7;
+void push(int stack[],int data)
+{
+	if(top>=n)
+	{
+		printf("stack overflow:\n");
+	}
+	top=top+1;
+	stack[top]=data;
+	
+}
+int pop(int stack[])
+{
+	if(top<=-1)
+	{
+		printf("stack underflow:\n");
+	}
+	int y=stack[top];
+	top-=1;
+	return(y);
+}
+void display(int stack[])
+{
+	int i;
+	for(i=0;i<=top;i++)
+	{
+		printf("%d ",stack[i]);
+	}
+}
+int check(char c)
+{
+	if(c=='+' || c=='-' || c=='x' || c=='/' || c=='%')
+	return 5;
+	else
+	return 6;
+}
+main()
+{
+	int ch,da,g,a,b;
+	int stack[n];
+	char suffix[20];
+	int i,j,k,l;
+	printf("enter a string:\n");
+	scanf("%s",suffix);
+	l=strlen(suffix);
+    for(i=0;i<l;i++)
+    {
+    	j=check(suffix[i]);
+    	if(j==6)
+    	{
+    	    k=suffix[i]-48;
+    		push(stack,k);
+		}
+		else
+		{
+			a=pop(stack);
+			b=pop(stack);
+			switch(suffix[i])
+			{
+				case '+':
+					g=a+b;
+					break;
+				case '-':
+					g=a-b;
+					break;
+				case 'x':
+					g=a*b;
+					break;
+				case '/':
+					g=a/b;
+					break;
+			}
+			push(stack,g);
+			//display(stack);
+		}
+	}
+	display(stack);
+}

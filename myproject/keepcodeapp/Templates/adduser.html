@@ -5,6 +5,9 @@
     <title>demo!</title>
   </head>
   <body>
+    {{message}}
+    <br/>
+    upload user file : (format username,password)
   <form action="/keepcodeapp/add_user" method="POST" enctype = "multipart/form-data">{% csrf_token %}
     <input type = "file" name = "userfile" id="userfile"/>
     <button type="submit">Add User</button>
