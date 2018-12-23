@@ -6,6 +6,21 @@
     $('.modal').modal();
   });
 </script>
+
+    <nav>
+		<div class="nav-wrapper tomato">
+			 <a href="#" class="brand-logo">Welcome {{ request.user.username }}</a>
+			<ul id="nav-mobile" class="right">
+                {% if request.user.is_superuser %}
+                    <li><a href="/keepcodeapp/adduser" class="waves-effect waves-light">Add User</a> </li>
+                {% endif %}
+				<li><a href="/loginmodule/logout" class="waves-effect waves-light ">Logout</a></li>
+
+			</ul>
+		</div>
+	</nav>
+
+
 <h1 class="center">Select Program</h1>
     {% if message %}
     <div class="container row">
@@ -27,7 +42,9 @@
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
                       </div>
-                      <button type = "submit" class="btn col s4 m4 l4">upload Code file</button>
+                      <div class="btn col s4 m4 l4">
+                        <button type = "submit" >upload Code file</button>
+                      </div>
                   </div>
               </form>
 
@@ -41,7 +58,9 @@
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
                       </div>
-                      <button type = "submit" class="btn col s4 m4 l4">upload input file</button>
+                      <div  class="btn col s4 m4 l4">
+                        <button type = "submit">upload input file</button>
+                      </div>
                   </div>
                 </form>
               {% endifequal %}
@@ -57,8 +76,12 @@
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
                       </div>
-                      <button type = "submit" class="btn col s4 m4 l4">upload output file</button>
+                    <!--  <div class="btn col s4 m4 l4">
+
+                      </div>-->
                   </div>
+                  <button type = "submit" class="btn col s4 m4 l4">upload output file</button>
+
                 </form>
               {% endifequal %}
 

@@ -33,7 +33,7 @@ def program_file(request):
     c['visited'] = visited
     c['inputfile'] = inputfile
     c['outputfile'] = outputfile
-    print(visited)
+    #print(visited)
     return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
@@ -114,7 +114,7 @@ def add_user(request):
                 user = User.objects.create_user(username=username)
                 user.set_password(password1)
                 user.save()
-            c['message'] = "user added Successfully"
+            c['message'] = "User Added Successfully"
             return render(request,'adduser.html',c)
     except:
         c['message'] = "Exception Occured"
