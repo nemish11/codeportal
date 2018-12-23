@@ -33,15 +33,20 @@ def program_file(request):
     c['visited'] = visited
     c['inputfile'] = inputfile
     c['outputfile'] = outputfile
-    print(visited)
+    #print(visited)
     return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
 def upload_file(request):
+    c={}
     try:
         id = request.GET.get('id')
         username = request.session['username']
         file1 = request.FILES["codefile"]
+        if file1.size > 2*1024*1024 :
+            c["message_of_size"]="File too large. Size should not exceed 2 MB."
+            #return HttpResponseRedirect('/keepcodeapp')
+            return render(request,'index.html',c)
         fs = FileSystemStorage()
         filename = "./keepcodeapp/static/UserSubmissions/"+username+"_program"+str(id)+".c"
         if fs.exists(filename):
@@ -114,7 +119,7 @@ def add_user(request):
                 user = User.objects.create_user(username=username)
                 user.set_password(password1)
                 user.save()
-            c['message'] = "user added Successfully"
+            c['message'] = "User Added Successfully"
             return render(request,'adduser.html',c)
     except:
         c['message'] = "Exception Occured"
