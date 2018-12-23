@@ -18,8 +18,8 @@
             <div class="modal-container container">
                 <br><h4 class="center">Program {{d}}</h4>
               <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-
-                  <div class="file-field input-field row">
+                <div class="row">
+                  <div class="file-field input-field">
                       <div class="btn col s4 m4 l4">
                         <span>Code File</span>
                         <input type="file"  name="codefile" id="codefile">
@@ -27,8 +27,9 @@
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
                       </div>
-                      <button type = "submit" class="btn col s4 m4 l4">upload Code file</button>
                   </div>
+                  <button type = "submit" class="btn col s4 m4 l4">upload Code file</button>
+                </div>
               </form>
 
               {% ifequal request.session.username request.session.superuser %}
