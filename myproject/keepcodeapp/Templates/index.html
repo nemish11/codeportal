@@ -19,59 +19,30 @@
 			</ul>
 		</div>
 	</nav>
+    {% if message_of_size  %}
+        <h4>{{ message_of_size}}</h4>
+    {% endif %}
+    <h1 class="center">Select Program</h1>
 
 
-<h1 class="center">Select Program</h1>
     {% if message %}
-    <div class="container row">
-    {% for d in message%}
-        <a class="modal-trigger" href="#modal{{d}}"><div class="center col s2 m2 l2 text-center red white-text" style="padding: 10px; border: solid white;">{{ d  }}</div></a>
-    {% endfor%}
-    </div>
+        <div class="container row">
+            {% for d in message%}
+                <a class="modal-trigger" href="#modal{{d}}"><div class="center col s2 m2 l2 text-center red white-text" style="padding: 10px; border: solid white;">{{ d  }}</div></a>
+            {% endfor%}
+        </div>
+
+
       {% for d in message %}
             <div id="modal{{d}}" class="modal">
             <div class="modal-container container">
                 <br><h4 class="center">Program {{d}}</h4>
               <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
 
-                  <div class="file-field input-field row">
-                      <div class="btn col s4 m4 l4">
-                        <span>Code File</span>
+                  <div class="file-field input-field ">
+                      <div class="btn grey col s4 m4 l4">
+                        <span>Select Code File</span>
                         <input type="file"  name="codefile" id="codefile">
-                      </div>
-                      <div class="file-path-wrapper col s4 m4 l4">
-                        <input class="file-path validate" type="text">
-                      </div>
-                      <div class="btn col s4 m4 l4">
-                        <button type = "submit" >upload Code file</button>
-                      </div>
-                  </div>
-              </form>
-
-              {% ifequal request.session.username request.session.superuser %}
-                <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-                  <div class="file-field input-field row">
-                      <div class="btn col s4 m4 l4">
-                        <span>Input File</span>
-                        <input type="file"  name="inputfile" id="inputfile">
-                      </div>
-                      <div class="file-path-wrapper col s4 m4 l4">
-                        <input class="file-path validate" type="text">
-                      </div>
-                      <div  class="btn col s4 m4 l4">
-                        <button type = "submit">upload input file</button>
-                      </div>
-                  </div>
-                </form>
-              {% endifequal %}
-
-              {% ifequal request.session.username request.session.superuser %}
-                <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-
-                  <div class="file-field input-field row">
-                      <div class="btn col s4 m4 l4">
-                        <span>Output File</span>
-                        <input type="file"  name="outputfile" id="outputfile">
                       </div>
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
@@ -79,12 +50,51 @@
                     <!--  <div class="btn col s4 m4 l4">
 
                       </div>-->
-                  </div>
-                  <button type = "submit" class="btn col s4 m4 l4">upload output file</button>
 
+                  </div>
+                   <button type = "submit" class="btn blue-grey col s4 m4 l4">upload Code file</button>
+              </form>
+                <div class="divider black"></div>
+              {% ifequal request.session.username request.session.superuser %}
+                <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+                  <div class="file-field input-field ">
+                      <div class="btn grey col s4 m4 l4">
+                        <span>Select Input File</span>
+                        <input type="file"  name="inputfile" id="inputfile">
+                      </div>
+                      <div class="file-path-wrapper col s4 m4 l4">
+                        <input class="file-path validate" type="text">
+                      </div>
+                  </div>
+
+                     <div  >
+                         <button type = "submit" class="btn blue-grey col s4 m4 l4">upload input file</button>
+                     </div>
                 </form>
               {% endifequal %}
 
+              {% ifequal request.session.username request.session.superuser %}
+                  <div class="divider black"></div>
+                    <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
+
+                      <div class="file-field input-field ">
+                          <div class="btn grey col s4 m4 l4">
+                            <span>Select Output File</span>
+                            <input type="file"  name="outputfile" id="outputfile">
+                          </div>
+                          <div class="file-path-wrapper col s4 m4 l4">
+                            <input class="file-path validate" type="text">
+                          </div>
+                        <!--  <div class="btn col s4 m4 l4">
+
+                          </div>-->
+                      </div>
+                      <button type = "submit" class="btn blue-grey col s4 m4 l4">upload output file</button>
+
+                    </form>
+
+              {% endifequal %}
+                <div class="divider black"></div>
                 <div class="row">
                     {% if d in inputfile %}
                         <a class="col s4 m4 l4 btn-flat" href = "/keepcodeapp/static/InputFiles/input_program{{d}}.txt" download>Inputfile</a>
