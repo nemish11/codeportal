@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block body %}
     <script>
@@ -38,34 +37,20 @@
             <div class="modal-container container">
                 <br><h4 class="center">Program {{d}}</h4>
               <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-<<<<<<< HEAD
-                <div class="row">
-                  <div class="file-field input-field">
-                      <div class="btn col s4 m4 l4">
-                        <span>Code File</span>
-=======
 
                   <div class="file-field input-field ">
                       <div class="btn grey col s4 m4 l4">
                         <span>Select Code File</span>
->>>>>>> 39470a0a64da6fa1eb90845a421e6702faa1c89e
                         <input type="file"  name="codefile" id="codefile">
                       </div>
                       <div class="file-path-wrapper col s4 m4 l4">
                         <input class="file-path validate" type="text">
                       </div>
-<<<<<<< HEAD
-                  </div>
-                  <button type = "submit" class="btn col s4 m4 l4">upload Code file</button>
-                </div>
-=======
                     <!--  <div class="btn col s4 m4 l4">
-
                       </div>-->
 
                   </div>
                    <button type = "submit" class="btn blue-grey col s4 m4 l4">upload Code file</button>
->>>>>>> 39470a0a64da6fa1eb90845a421e6702faa1c89e
               </form>
                 <div class="divider black"></div>
               {% ifequal request.session.username request.session.superuser %}
@@ -99,7 +84,6 @@
                             <input class="file-path validate" type="text">
                           </div>
                         <!--  <div class="btn col s4 m4 l4">
-
                           </div>-->
                       </div>
                       <button type = "submit" class="btn blue-grey col s4 m4 l4">upload output file</button>
