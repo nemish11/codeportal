@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#define max(a,b) ((a)<(b))?(b):(a)
+main()
+{
+	int a,h;
+	scanf("%d",&a);
+	scanf("%d",&h);
+printf("%d",max(a,h)); 	
+ }

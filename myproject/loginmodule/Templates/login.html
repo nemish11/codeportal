@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static "css/materialize.min.css" %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <!--<link rel="stylesheet" href="{% static "css/style.css" %}">-->
-    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
-    <script src="{% static "js/materialize.min.js" %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
 
-    <script src="{% static "js/script.js" %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
   </head>
 
   <body>
@@ -23,27 +23,29 @@
 			<a href="#" class="brand-logo">Online Code Storing System</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-  				<li><a href="#">Home</a></li>
+  			<!--	<li><a href="#">Home</a></li>
   				<li><a href="#">News</a></li>
   				<li><a href="#">Contact us</a></li>
   				<li><a href="#">About us</a></li>
-  				<li><a href="#">FAQ</a></li>
+  				<li><a href="#">FAQ</a></li> -->
   			</ul>
 			<ul class="side-nav" id="mobile-demo">
-        <li><a href="#">Home</a></li>
+        <!--<li><a href="#">Home</a></li>
         <li><a href="#">News</a></li>
         <li><a href="#">Contact us</a></li>
         <li><a href="#">About us</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="#">FAQ</a></li>-->
 			</ul>
 		</div>
   	</nav>
 
     <div class="container center-align">
       <h1>Login</h1>
+
        <h5>
          {% if messages %}
            {% for message in messages %}
+
                {{ message }}
                <br/>
            {% endfor %}
