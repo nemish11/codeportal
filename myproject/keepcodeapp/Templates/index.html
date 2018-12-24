@@ -37,49 +37,63 @@
             <div class="modal-container container">
                 <br><h4 class="center">Program {{d}}</h4>
               <form action="/keepcodeapp/upload_file/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-
-                  <div class="file-field input-field ">
-                      <div class="btn grey col s4 m4 l4">
-                        <span>Select Code File</span>
-                        <input type="file"  name="codefile" id="codefile">
+                <div class="row">
+                  <div class="file-field input-field col s8 m8 l8">
+                      <div class="row">
+                          <div class="btn grey col s6 m6 l6">
+                            <span>Select Code File</span>
+                            <input type="file"  name="codefile" id="codefile">
+                          </div>
+                          <div class="file-path-wrapper col s6 m6 l6">
+                            <input class="file-path validate" type="text">
+                          </div>
                       </div>
-                      <div class="file-path-wrapper col s4 m4 l4">
-                        <input class="file-path validate" type="text">
-                      </div>
+<<<<<<< HEAD
                     <!--  <div class="btn col s4 m4 l4">
                       </div>-->
 
+=======
+>>>>>>> 5c720ac21a6fde4b946326e906f06c2ad176c5bf
                   </div>
                    <button type = "submit" class="btn blue-grey col s4 m4 l4">upload Code file</button>
+                </div>
               </form>
                 <div class="divider black"></div>
               {% ifequal request.session.username request.session.superuser %}
                 <form action="/keepcodeapp/upload_input/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-                  <div class="file-field input-field ">
-                      <div class="btn grey col s4 m4 l4">
-                        <span>Select Input File</span>
-                        <input type="file"  name="inputfile" id="inputfile">
-                      </div>
-                      <div class="file-path-wrapper col s4 m4 l4">
-                        <input class="file-path validate" type="text">
-                      </div>
-                  </div>
-
-                     <div  >
+                  <div class="row">
+                    <div class="file-field input-field col s8 m8 l8">
+                        <div class="row">
+                              <div class="btn grey col s6 m6 l6">
+                                <span>Select Input File</span>
+                                <input type="file"  name="inputfile" id="inputfile">
+                              </div>
+                              <div class="file-path-wrapper col s6 m6 l6">
+                                <input class="file-path validate" type="text">
+                              </div>
+                        </div>
+                    </div>
                          <button type = "submit" class="btn blue-grey col s4 m4 l4">upload input file</button>
-                     </div>
+                  </div>
                 </form>
               {% endifequal %}
 
               {% ifequal request.session.username request.session.superuser %}
                   <div class="divider black"></div>
                     <form action="/keepcodeapp/upload_output/?id={{d}}" method="POST" enctype = "multipart/form-data">{% csrf_token %}
-
-                      <div class="file-field input-field ">
-                          <div class="btn grey col s4 m4 l4">
-                            <span>Select Output File</span>
-                            <input type="file"  name="outputfile" id="outputfile">
+                        <div class="row">
+                          <div class="file-field input-field col s8 m8 l8 ">
+                              <div class="row">
+                                  <div class="btn grey col s6 m6 l6">
+                                    <span>Select Output File</span>
+                                    <input type="file"  name="outputfile" id="outputfile">
+                                  </div>
+                                  <div class="file-path-wrapper col s6 m6 l6">
+                                    <input class="file-path validate" type="text">
+                                  </div>
+                              </div>
                           </div>
+<<<<<<< HEAD
                           <div class="file-path-wrapper col s4 m4 l4">
                             <input class="file-path validate" type="text">
                           </div>
@@ -88,6 +102,10 @@
                       </div>
                       <button type = "submit" class="btn blue-grey col s4 m4 l4">upload output file</button>
 
+=======
+                          <button type = "submit" class="btn blue-grey col s4 m4 l4">upload output file</button>
+                        </div>
+>>>>>>> 5c720ac21a6fde4b946326e906f06c2ad176c5bf
                     </form>
 
               {% endifequal %}
