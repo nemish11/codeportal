@@ -1,7 +1,27 @@
 #include<stdio.h>
-main()
+int main()
 {
-	char c[]="GATE2020";
-	char *p=c;
-	printf("%s",p+p[3]-p[1]);
-}
+    char s[10005], ch;
+    int l, i, c=0;
+    scanf("%s",&s);
+    ch = getchar();
+    ch = getchar();
+    ch = getchar();
+    l = strlen(s);
+    for(i=0;i<l;i++)
+    if(s[i]==ch)
+    c++;
+    if(c==2)
+    printf("evenprime");
+    else
+    {
+        for(i=2;i<c;i++)
+        if((c%i)==0)
+        break;
+        if(i==c)
+        printf("oddprime");
+        else
+        printf("notprime");
+    }
+    return 0;
+} 
