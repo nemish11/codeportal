@@ -10,34 +10,36 @@ import pandas as pd
 # Create your views here.
 @login_required(login_url="/loginmodule/login")
 def program_file(request):
-    username = request.session['username']
-    fs = FileSystemStorage()
-    visited = {}
-    inputfile = {}
-    outputfile = {}
-    message = []
-    fname = "./keepcodeapp/static/UserSubmissions/"
-    fname1 = "./keepcodeapp/static/InputFiles/"
-    fname2 = "./keepcodeapp/static/OutputFiles/"
-    for i in range(1, 51):
-        message.append(str(i))
-        filename = fname + username + "_program" + str(i) + ".c"
-        if fs.exists(filename):
-            visited[str(i)] = str(1)
-        filename = fname1 + "input_program" + str(i) + ".txt"
-        if fs.exists(filename):
-            inputfile[str(i)] = str(1)
-        filename = fname2 + "output_program" + str(i) + ".txt"
-        if fs.exists(filename):
-            outputfile[str(i)] = str(1)
-    c = {}
-    c['message'] = message
-    c['visited'] = visited
-    c['inputfile'] = inputfile
-    c['outputfile'] = outputfile
-    # print(visited)
-    return render(request, 'index.html', c)
-
+	try:
+		username = request.session['username']
+	except:
+		username = request.user.username
+	fs = FileSystemStorage()
+	visited = {}
+	inputfile = {}
+	outputfile = {}
+	message = []
+	fname = "./keepcodeapp/static/UserSubmissions/"
+	fname1 = "./keepcodeapp/static/InputFiles/"
+	fname2 = "./keepcodeapp/static/OutputFiles/"
+	for i in range(1,51):
+	    message.append(str(i))
+	    filename = fname + username + "_program" + str(i) + ".c"
+	    if fs.exists(filename):
+	        visited[str(i)] = str(1)
+	    filename = fname1 + "input_program" + str(i) + ".txt"
+	    if fs.exists(filename):
+	        inputfile[str(i)] = str(1)
+	    filename = fname2 + "output_program" + str(i) + ".txt"
+	    if fs.exists(filename):
+	        outputfile[str(i)] = str(1)
+	c = {}
+	c['message'] = message
+	c['visited'] = visited
+	c['inputfile'] = inputfile
+	c['outputfile'] = outputfile
+	#print(visited)
+	return render(request,'index.html',c)
 
 @login_required(login_url="/loginmodule/login")
 def upload_file(request):
