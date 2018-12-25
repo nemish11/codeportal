@@ -14,57 +14,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/keepcodeapp/Templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
-              <folding>
-                <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-                <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-                <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-                <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-                <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-                <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-                <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-                <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-                <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-                <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-                <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginmodule/Templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-              <folding>
-                <marker date="1545546031599" expanded="true" signature="46:78" ph="{% block title ... %}" />
-                <marker date="1545546031599" expanded="true" signature="1534:1688" ph="{% if messages ... %}" />
-                <marker date="1545546031599" expanded="true" signature="1563:1667" ph="{% for message in messages ... %}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/keepcodeapp/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="46" column="76" lean-forward="false" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+            <state relative-caret-position="71">
+              <caret line="85" column="78" lean-forward="true" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginmodule/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="38" column="51" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +57,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,7 +81,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,7 +211,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2685325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -288,21 +240,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/keepcodeapp/Templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="47" lean-forward="false" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
-          <folding>
-            <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-            <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-            <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-            <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -310,11 +250,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keepcodeapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="76" lean-forward="false" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginmodule/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="51" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="51" />
           <folding>
-            <marker date="1545546031599" expanded="true" signature="46:78" ph="{% block title ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1534:1688" ph="{% if messages ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1563:1667" ph="{% for message in messages ... %}" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keepcodeapp/Templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="47" lean-forward="false" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginmodule/Templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -340,19 +310,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="80" column="47" lean-forward="false" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
-          <folding>
-            <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-            <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-            <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-            <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -360,11 +318,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <marker date="1545546031599" expanded="true" signature="46:78" ph="{% block title ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1534:1688" ph="{% if messages ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1563:1667" ph="{% for message in messages ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -390,19 +344,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-            <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-            <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-            <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -410,11 +352,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <marker date="1545546031599" expanded="true" signature="46:78" ph="{% block title ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1534:1688" ph="{% if messages ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1563:1667" ph="{% for message in messages ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -440,19 +378,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
           <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-            <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-            <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-            <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -498,43 +424,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginmodule/Templates/login.html">
+    <entry file="file://$PROJECT_DIR$/keepcodeapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <marker date="1545546031599" expanded="true" signature="46:78" ph="{% block title ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1534:1688" ph="{% if messages ... %}" />
-            <marker date="1545546031599" expanded="true" signature="1563:1667" ph="{% for message in messages ... %}" />
-          </folding>
+        <state relative-caret-position="680">
+          <caret line="46" column="76" lean-forward="false" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keepcodeapp/views.py">
+    <entry file="file://$PROJECT_DIR$/loginmodule/Templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="46" column="76" lean-forward="false" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/keepcodeapp/Templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
-          <folding>
-            <marker date="1545589126266" expanded="true" signature="27:5271" ph="{% block body ... %}" />
-            <marker date="1545589126266" expanded="true" signature="307:476" ph="{% if request.user.is_superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="596:675" ph="{% if message_of_size  ... %}" />
-            <marker date="1545589126266" expanded="true" signature="725:5256" ph="{% if message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="790:1018" ph="{% for d in message... %}" />
-            <marker date="1545589126266" expanded="true" signature="1042:5240" ph="{% for d in message ... %}" />
-            <marker date="1545589126266" expanded="true" signature="2170:3203" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="3219:4384" ph="{% ifequal request.session.username request.session.superuser ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4489:4687" ph="{% if d in inputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4708:4910" ph="{% if d in outputfile ... %}" />
-            <marker date="1545589126266" expanded="true" signature="4931:5159" ph="{% if d in visited ... %}" />
-          </folding>
+        <state relative-caret-position="71">
+          <caret line="85" column="78" lean-forward="true" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
